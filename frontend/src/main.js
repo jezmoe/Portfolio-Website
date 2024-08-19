@@ -1,22 +1,16 @@
 import { createApp } from 'vue';
 import App from './App.vue';
 import router from './router';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const app = createApp(App);
-
-// Add smooth scroll behavior
-app.directive('smooth-scroll', {
-    mounted(el) {
-        el.addEventListener('click', function(e) {
-            if (this.hash !== "") {
-                e.preventDefault();
-                const hash = this.hash;
-                const toElement = document.querySelector(hash);
-                toElement.scrollIntoView({ behavior: "smooth", block: "start" });
-            }
-        });
-    }
-});
-
 app.use(router);
+
 app.mount('#app');
+
+// AOS Initialization
+app.config.globalProperties.$AOS = AOS.init({
+  once: true, // whether animation should happen only once - while scrolling down
+  mirror: false, // whether elements should animate out while scrolling past them
+});
