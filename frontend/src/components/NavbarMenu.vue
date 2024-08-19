@@ -15,12 +15,19 @@ export default {
 <style scoped>
 nav {
   display: flex;
-  justify-content: space-around;
-  padding: 10px;
-  background-color: #f5f5f5;
+  justify-content: space-between;
+  width: 100%;
+  padding: 20px 50px;
+  position: fixed;
+  top: 0;
+  background-color: #121212;
 }
+
 router-link {
+  color: #FFFFFF;
   text-decoration: none;
-  color: #333;
+  font-size: 18px;
+  font-weight: bold;
 }
 </style>
+

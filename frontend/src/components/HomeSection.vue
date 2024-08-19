@@ -1,7 +1,7 @@
 <template>
   <div class="home-section">
-    <h1>Welcome to My Portfolio</h1>
-    <p>This is a brief introduction about myself.</p>
+    <h1>Jan Jefferson Rubido</h1>
+    <p>I'm a creative developer, passionate about crafting inspiring digital experiences.</p>
   </div>
 </template>
 
@@ -12,8 +12,12 @@ export default {
 </script>
 
 <style scoped>
-.home-section {
-  text-align: center;
+h1 {
+  font-size: 48px;
+  font-weight: bold;
+}
+p {
+  font-size: 24px;
   margin-top: 20px;
 }
 </style>

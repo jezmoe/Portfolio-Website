@@ -17,5 +17,16 @@ export default {
 </script>
 
 <style>
-/* Global styles can go here */
+#app {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #FFFFFF;
+  background-color: #121212;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
 </style>
+
