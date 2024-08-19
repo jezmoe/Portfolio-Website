@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="home-section">
     <h1>Welcome to My Portfolio</h1>
     <p>This is a brief introduction about myself.</p>
   </div>
@@ -7,12 +7,12 @@
 
 <script>
 export default {
-  name: 'Home'
+  name: 'HomeSection'
 }
 </script>
 
 <style scoped>
-.home {
+.home-section {
   text-align: center;
   margin-top: 20px;
 }
