@@ -11,6 +11,6 @@ app.mount('#app');
 
 // AOS Initialization
 app.config.globalProperties.$AOS = AOS.init({
-  once: true, // whether animation should happen only once - while scrolling down
-  mirror: false, // whether elements should animate out while scrolling past them
+  once: false, // whether animation should happen only once - while scrolling down
+  mirror: true, // whether elements should animate out while scrolling past them
 });

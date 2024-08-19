@@ -10,9 +10,8 @@
       <NavbarMenu />
       <HomeSection />
       <AboutSection />
-      <ExperienceSection />
+      <ContactSection />
     </div>
-    <img src="@/assets/logo.png" alt="Jan Jefferson Rubido Logo" style="height: 50px;">
   </div>
 </template>
 
@@ -20,7 +19,7 @@
 import NavbarMenu from './components/NavbarMenu.vue';
 import HomeSection from './components/HomeSection.vue';
 import AboutSection from './components/AboutSection.vue';
-import ExperienceSection from './components/ExperienceSection.vue';
+import ContactSection from './components/ContactSection.vue';
 
 export default {
   name: 'App',
@@ -28,7 +27,7 @@ export default {
     NavbarMenu,
     HomeSection,
     AboutSection,
-    ExperienceSection
+    ContactSection
   },
   data() {
     return {
@@ -52,6 +51,12 @@ export default {
   }
 }
 </script>
+
+
+html {
+  scroll-behavior: smooth;
+}
+
 
 <style>
 .loading {

@@ -1,5 +1,5 @@
 <template>
-    <div class="about-section" id="about" data-aos="fade-up" data-aos-duration="1000">
+    <div class="about-section" id="about" data-aos="fade-down" data-aos-duration="1000">
       <h2>About Me</h2>
       <p>I am Jan Jefferson Rubido, an IT Specialist with experience providing technical support and assistance across multiple companies, skilled in SQL, O365 administration, project management, and cybersecurity management.</p>
       <p>During my time with companies like Pneumatic and Hydraulic Company and Amazon, I have successfully implemented domain controllers, managed server databases, and contributed to full-stack projects that enhance business operations and security.</p>

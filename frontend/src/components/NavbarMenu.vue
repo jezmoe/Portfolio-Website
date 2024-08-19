@@ -1,49 +1,39 @@
 <template>
   <nav>
     <router-link to="/" class="link">Home</router-link>
-    <router-link to="/about" class="link about-link">About</router-link>
+    <a @click.prevent="scrollToSection('about')" class="link">About</a>
     <router-link to="/experience" class="link">Experience</router-link>
     <router-link to="/contact" class="link">Contact</router-link>
   </nav>
-  <p class="note">Note: This website is still a work in progress.</p>
 </template>
 
 <script>
 export default {
-  name: 'NavbarMenu'
+  methods: {
+    scrollToSection(id) {
+      const section = document.getElementById(id);
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }
 }
 </script>
 
 <style scoped>
 nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding: 10px;
-  background-color: transparent;
   display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.link {
-  color: white; /* White text for visibility on the black background */
-  text-decoration: none;
-  margin: 0 20px;
-}
-
-.about-link {
+  justify-content: space-evenly;
   position: fixed;
-  right: 50px;
-  top: 10px;
+  width: 100%;
+  top: 0;
+  background-color: transparent;
+  padding: 10px 0;
 }
 
-.note {
-  position: fixed;
-  bottom: 10px;
-  right: 10px;
+.link, a {
   color: white;
-  font-size: small;
+  text-decoration: underline;
+  cursor: pointer;
 }
 </style>
