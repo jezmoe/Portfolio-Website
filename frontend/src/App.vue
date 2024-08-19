@@ -12,6 +12,7 @@
       <AboutSection />
       <ExperienceSection />
     </div>
+    <img src="@/assets/logo.png" alt="Jan Jefferson Rubido Logo" style="height: 50px;">
   </div>
 </template>
 
