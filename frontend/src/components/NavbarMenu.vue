@@ -24,7 +24,7 @@ export default {
 <style scoped>
 nav {
   display: flex;
-  justify-content: space-around; /* This ensures equal spacing */
+  justify-content: space-around;
   align-items: center;
   position: fixed;
   top: 0;
@@ -38,6 +38,6 @@ nav {
   color: white;
   text-decoration: none;
   cursor: pointer;
-  padding: 10px 20px; /* Adds more clickable area */
+  padding: 10px 20px;
 }
 </style>

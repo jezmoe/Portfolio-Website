@@ -14,6 +14,7 @@
       <h2>{{ selectedProject.title }}</h2>
       <img :src="selectedProject.image" :alt="selectedProject.title">
       <p>{{ selectedProject.description }}</p>
+      <p>Add project details here</p> <!-- Placeholder for project details -->
     </div>
   </div>
 </template>
@@ -27,7 +28,7 @@ export default {
         { title: 'Project 1', image: 'path/to/image1.jpg', description: 'Description here' },
         { title: 'Project 2', image: 'path/to/image2.jpg', description: 'Description here' },
       ],
-      selectedProject: null
+      selectedProject: null // Tracks the currently selected project
     };
   },
   methods: {
@@ -36,6 +37,7 @@ export default {
     },
     closeModal() {
       this.selectedProject = null;
+      this.$router.push('/'); // Navigates back to the home page
     }
   }
 }
@@ -67,7 +69,7 @@ export default {
 }
 
 .project:hover img {
-  transform: scale(1.05);
+  transform: scale(1.05); /* Scale up on hover */
 }
 
 .project-title {
@@ -91,10 +93,11 @@ export default {
 
 .modal button {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 10px;
+  right: 10px;
   cursor: pointer;
   font-size: 16px;
-  padding: 10px;
+  color: black;
+  text-decoration: underline;
 }
 </style>

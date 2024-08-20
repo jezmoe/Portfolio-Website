@@ -9,11 +9,7 @@
     <div v-else class="content">
       <NavbarMenu />
       <HomeSection />
-      <router-link to="/experience" v-if="isExperienceActive" custom v-slot="{ navigate }">
-        <div @click="navigate">
-          <ExperienceSection />
-        </div>
-      </router-link>
+      <ExperienceSection />
       <AboutSection />
       <ContactSection />
     </div>
