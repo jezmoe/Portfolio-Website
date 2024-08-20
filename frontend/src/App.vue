@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    
     <div v-if="loading" class="loading">
       <div class="progress-bar-background">
         <div class="progress-bar" :style="{ width: progress + '%' }"></div>
@@ -68,6 +69,15 @@ export default {
 </script>
 
 <style>
+
+/* CSS transitions */
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active in <2.1.8 */ {
+  opacity: 0;
+}
+
 .loading {
   position: fixed;
   top: 0;

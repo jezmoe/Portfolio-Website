@@ -1,4 +1,3 @@
-<!-- Experience Section -->
 <template>
   <div class="experience-section" id="experience">
     <h1>Experience</h1>
@@ -8,14 +7,15 @@
         <div class="project-title">{{ project.title }}</div>
       </div>
     </div>
-    <!-- Modal for project details -->
-    <div v-if="selectedProject" class="modal">
-      <button @click="closeModal" class="close-button">Close</button>
-      <h2>{{ selectedProject.title }}</h2>
-      <img :src="selectedProject.image" :alt="selectedProject.title">
-      <p>{{ selectedProject.description }}</p>
-      <p>Add project details here</p> <!-- Placeholder for project details -->
-    </div>
+    <!-- Transition for modal appearance and disappearance -->
+    <transition name="fade" mode="out-in">
+      <div v-if="showModal" class="modal">
+        <button @click="closeModal" class="close-button">Close</button>
+        <h2>{{ selectedProject?.title }}</h2>
+        <img :src="selectedProject?.image" :alt="selectedProject?.title">
+        <p>{{ selectedProject?.description }}</p>
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -25,25 +25,41 @@ export default {
   data() {
     return {
       projects: [
-        { title: 'Project 1', image: 'path/to/image1.jpg', description: 'Description here' },
-        { title: 'Project 2', image: 'path/to/image2.jpg', description: 'Description here' },
+        { id: 1, title: 'Project 1', image: 'path/to/image1.jpg', description: 'Description here' },
+        { id: 2, title: 'Project 2', image: 'path/to/image2.jpg', description: 'Description here' },
       ],
-      selectedProject: null // Tracks the currently selected project
+      selectedProject: null,
+      showModal: false
     };
   },
   methods: {
-    openProject(project) {
-      this.selectedProject = project;
-      history.pushState({ project: project.id }, '', '/experience/' + project.id);
-    },
-    closeModal() {
-      this.selectedProject = null;
-      history.back();
-    }
+  openProject(project) {
+    // Immediately clear any existing project data to reset the modal
+    this.selectedProject = null;
+    this.showModal = false; // Ensure modal is closed before reopening
+
+    // Use Vue.nextTick to update project details after the current view has been updated
+    this.$nextTick(() => {
+      setTimeout(() => { // Introduce a minimal timeout to ensure transition is triggered
+        this.selectedProject = project;
+        this.showModal = true; // Open modal with new project data
+        history.pushState({ project: project.id }, '', '/experience/' + project.id);
+      }, 10); // Small delay to ensure reactivity system updates
+    });
   },
+  closeModal() {
+    this.showModal = false;
+    setTimeout(() => {
+      this.selectedProject = null;
+      history.pushState({}, '', '/experience');
+    }, 500); // Ensure the fade-out transition completes
+  }
+},
+
+
   mounted() {
     window.addEventListener('popstate', () => {
-      if (this.selectedProject) {
+      if (!history.state || !history.state.project) {
         this.closeModal();
       }
     });
@@ -102,11 +118,18 @@ export default {
 .modal button {
   position: fixed;
   top: 20px;
-  left: 50%;
+  right: 50%;
   transform: translateX(-50%);
   cursor: pointer;
   font-size: 16px;
   color: black;
   text-decoration: underline;
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter, .fade-leave-to /* Initially invisible */ {
+  opacity: 0;
 }
 </style>
