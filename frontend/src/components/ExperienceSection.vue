@@ -1,4 +1,4 @@
-<!-- ExperienceSection.vue -->
+<!-- Experience Section -->
 <template>
   <div class="experience-section" id="experience">
     <h1>Experience</h1>
@@ -34,11 +34,19 @@ export default {
   methods: {
     openProject(project) {
       this.selectedProject = project;
+      history.pushState({ project: project.id }, '', '/experience/' + project.id);
     },
     closeModal() {
       this.selectedProject = null;
-      this.$router.push('/'); // Navigates back to the home page
+      history.back();
     }
+  },
+  mounted() {
+    window.addEventListener('popstate', () => {
+      if (this.selectedProject) {
+        this.closeModal();
+      }
+    });
   }
 }
 </script>
@@ -59,7 +67,7 @@ export default {
 
 .project {
   flex: 0 0 auto;
-  width: 300px; /* Adjust width as needed */
+  width: 300px;
   cursor: pointer;
 }
 
@@ -69,7 +77,7 @@ export default {
 }
 
 .project:hover img {
-  transform: scale(1.05); /* Scale up on hover */
+  transform: scale(1.05);
 }
 
 .project-title {
@@ -88,13 +96,14 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  z-index: 1001; /* Above all content */
+  z-index: 1001;
 }
 
 .modal button {
-  position: absolute;
-  top: 10px;
-  right: 10px;
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
   cursor: pointer;
   font-size: 16px;
   color: black;
