@@ -1,9 +1,10 @@
+<!-- NavbarSection.vue -->
 <template>
   <nav>
-    <router-link to="/" class="link">Home</router-link>
+    <a @click.prevent="scrollToSection('home')" class="link">Home</a>
     <a @click.prevent="scrollToSection('about')" class="link">About</a>
-    <router-link to="/experience" class="link">Experience</router-link>
-    <router-link to="/contact" class="link">Contact</router-link>
+    <a @click.prevent="scrollToSection('experience')" class="link">Experience</a>
+    <a @click.prevent="scrollToSection('contact')" class="link">Contact</a>
   </nav>
 </template>
 
@@ -23,17 +24,20 @@ export default {
 <style scoped>
 nav {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around; /* This ensures equal spacing */
+  align-items: center;
   position: fixed;
-  width: 100%;
   top: 0;
-  background-color: transparent;
+  width: 100%;
+  background-color: #1a1a1a;
+  z-index: 1000;
   padding: 10px 0;
 }
 
-.link, a {
+.link {
   color: white;
-  text-decoration: underline;
+  text-decoration: none;
   cursor: pointer;
+  padding: 10px 20px; /* Adds more clickable area */
 }
 </style>

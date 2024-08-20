@@ -1,3 +1,4 @@
+<!-- ContactSection.vue -->
 <template>
   <div class="contact-section" id="contact" data-aos="fade-down" data-aos-duration="1000">
     <h1>Questions?</h1>

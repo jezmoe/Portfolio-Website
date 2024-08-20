@@ -1,3 +1,4 @@
+<!-- HomeSection.vue -->
 <template>
   <div class="home-section" id="home">
     <div class="name">

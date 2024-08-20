@@ -1,3 +1,4 @@
+<!-- AboutSection.vue -->
 <template>
     <div class="about-section" id="about" data-aos="fade-down" data-aos-duration="1000">
       <h2>About Me</h2>
