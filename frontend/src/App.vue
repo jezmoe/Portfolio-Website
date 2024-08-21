@@ -1,3 +1,5 @@
+
+
 <template>
   <div id="app">
     
@@ -53,6 +55,15 @@ export default {
     }, 30);
   },
   methods: {
+    scrollToElement(selector) {
+      const element = document.querySelector(selector);
+      if (element) {
+        window.scrollTo({
+          top: element.offsetTop,
+          behavior: 'smooth'
+        });
+      }
+    },
     checkRoute() {
       this.isExperienceActive = this.$route.name === 'Experience';
       this.$nextTick(() => {
@@ -69,6 +80,10 @@ export default {
 </script>
 
 <style>
+
+html {
+  scroll-behavior: smooth;
+}
 
 /* CSS transitions */
 .fade-enter-active, .fade-leave-active {
