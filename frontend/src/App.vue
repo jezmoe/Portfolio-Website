@@ -1,4 +1,4 @@
-
+<!-- App.vue -->
 
 <template>
   <div id="app">
@@ -67,7 +67,10 @@ export default {
     checkRoute() {
       this.isExperienceActive = this.$route.name === 'Experience';
       this.$nextTick(() => {
-        this.$el.querySelector('.content').style.opacity = 1;
+        const contentElement = this.$el.querySelector('.content');
+        if (contentElement) {
+          contentElement.style.opacity = 1;
+        }
       });
     }
   },
@@ -79,10 +82,14 @@ export default {
 }
 </script>
 
+
 <style>
 
-html {
+body, html {
   scroll-behavior: smooth;
+  overflow-x: hidden; /* Hide horizontal overflow which might be causing the white line */
+  margin: 0; /* Remove default margins */
+  padding: 0; /* Remove default padding */
 }
 
 /* CSS transitions */
@@ -125,4 +132,12 @@ html {
   opacity: 0; /* Start invisible and will be made visible by script */
   transition: opacity 0.5s ease-in-out;
 }
+
+::-webkit-scrollbar {
+  width: 0px; /* Remove scrollbar space */
+  background: transparent; /* Optional: make scrollbar completely transparent */
+}
+
 </style>
+
+
