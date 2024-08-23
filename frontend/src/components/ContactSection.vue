@@ -1,7 +1,7 @@
 <!-- ContactSection.vue -->
 <template>
   <div class="contact-section" id="contact" ref="contactSection">
-    <video ref="videoBackground" autoplay muted loop class="video-background">
+    <video ref="videoBackground" autoplay muted loop playsinline class="video-background">
       <source :src="videoSource" type="video/mp4">
       Your browser does not support the video tag.
     </video>
