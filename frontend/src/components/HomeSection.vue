@@ -5,7 +5,7 @@
       <h1>Jan Jefferson</h1>
       <h1>Rubido</h1>
     </div>
-    <p class="subtitle">I'm an aspiring Software Engineer, who is passionate about crafting digital breakthroughs.</p>
+    <p class="subtitle">I'm an aspiring Software Engineer, who is passionate about crafting digital breakthroughs..</p>
     <a href="https://github.com/jezmoe/Portfolio-Website/tree/main" target="_blank" class="source-code-link">Source Code</a>
   </div>
 </template>
@@ -49,4 +49,24 @@ export default {
   margin-top: 20px;
   display: inline-block;
 }
+
+/* Media query for smaller devices */
+@media (max-width: 768px) {
+  .home-section {
+    align-items: center; /* Center the items on smaller screens */
+    padding-left: 20px; /* Reduce padding for smaller screens */
+    padding-right: 20px; /* Add right padding for symmetry */
+  }
+
+  .name h1 {
+    font-size: 48px; /* Smaller font size for names on mobile */
+  }
+
+  .subtitle {
+    font-size: 18px; /* Smaller font size for subtitles on mobile */
+    text-align: center; /* Center align the subtitle */
+    max-width: 100%; /* Use full width for the subtitle */
+  }
+}
 </style>
+
