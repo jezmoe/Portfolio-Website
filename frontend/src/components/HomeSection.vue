@@ -5,7 +5,7 @@
       <h1>Jan Jefferson</h1>
       <h1>Rubido</h1>
     </div>
-    <p class="subtitle">I'm an aspiring Software Engineer, who is passionate about crafting digital breakthroughs..</p>
+    <p class="subtitle">I'm an aspiring Software Engineer, who is passionate about crafting digital breakthroughs.</p>
     <a href="https://github.com/jezmoe/Portfolio-Website/tree/main" target="_blank" class="source-code-link">Source Code</a>
   </div>
 </template>

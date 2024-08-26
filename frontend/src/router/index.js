@@ -1,14 +1,11 @@
+// index.js
 import { createRouter, createWebHistory } from 'vue-router';
-import HomeSection from '../components/HomeSection.vue';
-import AboutSection from '../components/AboutSection.vue';
-import ContactSection from '../components/ContactSection.vue';
-import ExperienceSection from '../components/ExperienceSection.vue';
+import MainPage from '../components/MainPage.vue';
+import LMS from '../components/LMS.vue';
 
 const routes = [
-  { path: '/', name: 'Home', component: HomeSection },
-  { path: '/about', name: 'About', component: AboutSection },
-  { path: '/contact', name: 'Contact', component: ContactSection },
-  { path: '/experience', name: 'Experience', component: ExperienceSection }
+  { path: '/', name: 'Home', component: MainPage },
+  { path: '/lms', name: 'LMS', component: LMS }
 ];
 
 const router = createRouter({
@@ -17,3 +14,4 @@ const router = createRouter({
 });
 
 export default router;
+

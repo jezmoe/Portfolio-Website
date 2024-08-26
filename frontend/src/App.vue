@@ -2,44 +2,31 @@
 
 <template>
   <div id="app">
-    
     <div v-if="loading" class="loading">
       <div class="progress-bar-background">
         <div class="progress-bar" :style="{ width: progress + '%' }"></div>
       </div>
       <span class="progress-text">{{ parseInt(progress) }}%</span>
     </div>
-    <div v-else class="content">
+    <div v-else>
       <NavbarMenu />
-      <HomeSection />
-      <ExperienceSection />
-      <AboutSection />
-      <ContactSection />
+      <router-view></router-view> <!-- Dynamic component rendering based on route -->
     </div>
   </div>
 </template>
 
 <script>
 import NavbarMenu from './components/NavbarMenu.vue';
-import HomeSection from './components/HomeSection.vue';
-import AboutSection from './components/AboutSection.vue';
-import ContactSection from './components/ContactSection.vue';
-import ExperienceSection from './components/ExperienceSection.vue';
 
 export default {
   name: 'App',
   components: {
-    NavbarMenu,
-    HomeSection,
-    AboutSection,
-    ContactSection,
-    ExperienceSection
+    NavbarMenu
   },
   data() {
     return {
       loading: true,
-      progress: 0,
-      isExperienceActive: false
+      progress: 0
     };
   },
   mounted() {
@@ -49,35 +36,9 @@ export default {
         clearInterval(interval);
         setTimeout(() => {
           this.loading = false;
-          this.checkRoute();
         }, 500);
       }
     }, 30);
-  },
-  methods: {
-    scrollToElement(selector) {
-      const element = document.querySelector(selector);
-      if (element) {
-        window.scrollTo({
-          top: element.offsetTop,
-          behavior: 'smooth'
-        });
-      }
-    },
-    checkRoute() {
-      this.isExperienceActive = this.$route.name === 'Experience';
-      this.$nextTick(() => {
-        const contentElement = this.$el.querySelector('.content');
-        if (contentElement) {
-          contentElement.style.opacity = 1;
-        }
-      });
-    }
-  },
-  watch: {
-    '$route'() {
-      this.checkRoute();
-    }
   }
 }
 </script>
