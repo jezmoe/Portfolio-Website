@@ -1,5 +1,4 @@
 <!-- App.vue -->
-
 <template>
   <div id="app">
     <div v-if="loading" class="loading">
@@ -10,7 +9,7 @@
     </div>
     <div v-else>
       <NavbarMenu />
-      <router-view></router-view> <!-- Dynamic component rendering based on route -->
+      <router-view :key="$route.fullPath"></router-view> <!-- Dynamic component rendering based on route -->
     </div>
   </div>
 </template>
@@ -42,6 +41,7 @@ export default {
   }
 }
 </script>
+
 
 
 <style>

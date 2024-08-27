@@ -1,6 +1,7 @@
 <!-- NavbarSection.vue -->
 <template>
-  <nav>
+  <!-- Conditionally render Navbar based on route meta property -->
+  <nav v-if="!$route.meta.hideNavbar">
     <a @click.prevent="scrollToSection('home')" class="link">Home</a>
     <a @click.prevent="scrollToSection('about')" class="link">About</a>
     <a @click.prevent="scrollToSection('experience')" class="link">Experience</a>
@@ -20,6 +21,7 @@ export default {
   }
 }
 </script>
+
 
 <style scoped>
 nav {
